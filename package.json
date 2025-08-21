@@ -1,0 +1,27 @@
+{
+  "name": "augustchallenge",
+  "version": "1.0.0",
+  "description": "A simple XSS vulnerable CTF for UMass Cybersec Club Summer Trainning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "backend": "cd backend && node server.js",
+    "bot": "cd bot && node bot.js",
+    "frontend": "cd web && npm run start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run bot\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newmie10/AugustChallenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newmie10/AugustChallenge/issues"
+  },
+  "homepage": "https://github.com/newmie10/AugustChallenge#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
+}
