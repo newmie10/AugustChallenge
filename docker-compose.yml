@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      PORT: "4000"
+    expose:
+      - "4000"
+    ports:
+      - "4000:4000"   # host:container (optional to expose to host)
+    networks:
+      - appnet
+    command: node server.js
+
+  frontend:
+    environment:
+      API_BACKEND_URL: "http://backend:4000"
+    build:
+      context: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"     # visit http://localhost:3000 (nginx serves on 80 in-container)
+    networks:
+      - appnet
+
+  bot:
+    build:
+      context: ./bot
+    depends_on:
+      - backend
+      - frontend
+    environment:
+      API_BASE_URL: "http://backend:4000"
+      API_FRONTEND_URL: "http://frontend"
+    networks:
+      - appnet
+    command: node bot.js
+
+networks:
+  appnet:
+    driver: bridge
