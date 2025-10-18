@@ -22,7 +22,7 @@ const webBase = process.env.API_FRONTEND_URL || "http://frontend";
         await page.goto(`${webBase}`, { waitUntil: "domcontentloaded" });
         await page.setCookie({
           name: "FLAG",
-          value: "CTF{n0w_y0u_h4ck3d_m3}",
+          value: process.env.FLAG,
           url: webBase,
           httpOnly: false,
           secure: false,    

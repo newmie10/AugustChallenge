@@ -35,3 +35,4 @@ backend/node_modules
 
 #bot
 bot/node_modules
+bot/.env
