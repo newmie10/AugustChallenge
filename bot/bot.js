@@ -2,6 +2,7 @@ const puppeteer = require("puppeteer");
 
 const apiBase = process.env.API_BASE_URL || "http://backend:4000";
 const webBase = process.env.API_FRONTEND_URL || "http://frontend";
+const FLAG = process.env.FLAG
 
 (async () => {
   // const browser = await puppeteer.launch({ headless: true }); use this for localhost
